@@ -56,9 +56,10 @@ namespace log4net.Core
 				m_fileName = frame.GetFileName();
 				// get method values
 				MethodBase method = frame.GetMethod();
-				if (method != null && method.DeclaringType != null)
+				if (method != null)
 				{
-					m_className = method.DeclaringType.FullName;
+					if (method.DeclaringType != null)
+					    m_className = method.DeclaringType.FullName;
 					m_method = new MethodItem(method);
 				}
 			}
